@@ -3,15 +3,15 @@ import utils
 import torch
 import commons
 
-hps = utils.get_hparams_from_file("nene.json")
+hps = utils.get_hparams_from_file("SummerPockets.json")
 net_g = emotional_vits_onnx_model.SynthesizerTrn(
-    40,
+   578,
     hps.data.filter_length // 2 + 1,
     hps.train.segment_size // hps.data.hop_length,
     n_speakers=hps.data.n_speakers,
     **hps.model)
 _ = net_g.eval()
-_ = utils.load_checkpoint("nene.pth", net_g)
+_ = utils.load_checkpoint("E:\galgame\MoeSS-CPU\MoeSS-CPU\Mods", net_g)
 
 stn_tst = torch.LongTensor([0,20,0,21,0,22,0])
 with torch.no_grad():
