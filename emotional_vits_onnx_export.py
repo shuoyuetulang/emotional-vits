@@ -5,7 +5,7 @@ import commons
 
 hps = utils.get_hparams_from_file("nene.json")
 net_g = emotional_vits_onnx_model.SynthesizerTrn(
-    40,
+    578,
     hps.data.filter_length // 2 + 1,
     hps.train.segment_size // hps.data.hop_length,
     n_speakers=hps.data.n_speakers,
